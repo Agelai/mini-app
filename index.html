@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATOMY — Поддержка продаж</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>ATOMY Красота</h1>
+    <p class="subtitle">Корейская продукция для красоты и ухода</p>
+
+    <button class="btn btn-primary" onclick="openCatalog()">📖 Каталог</button>
+    <button class="btn btn-secondary" onclick="openRegistration()">📝 Помощь с регистрацией</button>
+    <button class="btn btn-outline" onclick="openReviewForm()">💬 Оставить отзыв</button>
+    <button class="btn btn-primary" onclick="openChat()">✉️ Написать мне</button>
+</div>
+
+<!-- Модальное окно: форма отзыва -->
+<div class="modal-overlay" id="reviewFormModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">Оставить отзыв</span>
+            <button class="close-btn" onclick="closeReviewForm()">&times;</button>
+        </div>
+
+        <div class="review-form">
+            <label class="form-label">Ваше имя</label>
+            <input type="text" id="reviewName" class="form-input" placeholder="Например, Анна" maxlength="30">
+
+            <label class="form-label">Оценка</label>
+            <div class="stars-input" id="starsInput">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+            </div>
+
+            <label class="form-label">Комментарий</label>
+            <textarea id="reviewText" class="form-textarea" placeholder="Расскажите о своём опыте..." maxlength="300"></textarea>
+
+            <div class="form-actions">
+                <button class="btn btn-primary" onclick="saveReview()">💾 Сохранить</button>
+                <button class="btn btn-secondary" onclick="openReviewsList()">📋 Отзывы клиентов</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно: список отзывов -->
+<div class="modal-overlay" id="reviewsListModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">Отзывы клиентов</span>
+            <button class="close-btn" onclick="closeReviewsList()">&times;</button>
+        </div>
+        <div class="reviews-list" id="reviewsList"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
